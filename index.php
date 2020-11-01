@@ -1,5 +1,6 @@
 <?php
-include("functions/formFunctions.php");
+require("functions/formFunctions.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -9,6 +10,9 @@ include("functions/formFunctions.php");
     <title>Was kostet die Straße?</title>
   </head>
   <body>
-
+    <form action="result.php" method="post">
+        <?php genForm(csvToArray($fileC),csvToArray($fileQ));?>
+      <p><input type="submit" /></p>
+    </form>
   </body>
 </html>
