@@ -16,18 +16,20 @@ function csvToArray($filepath){
 
 #Funktion zum generieren des Formulars anhand der erstellen Arrays aus den CSVs
 function genForm($categorys, $questions){
+    
     foreach($categorys as $category){
+        $qCount = 1;
         echo '<b>'.$category[1].'</b>';
         echo '<br>';
         foreach($questions as $question){
             if($category[0] == $question[0]){
-                echo '<input type="checkbox" id="'.$question[1].'" name="scales" value="'.$question[2].'">
+                echo '<input type="checkbox" id="'.$question[1].'" name='.$category[1].$qCount.'" value="'.$question[2].'">
                         <label for="'.$question[1].'">'.$question[1].'</label>';
                 echo '<br>';
+                $qCount++;
             }
         }
         echo '<br><br><br>';
     }
 }
-genForm(csvToArray($fileC),csvToArray($fileQ));
 ?>
