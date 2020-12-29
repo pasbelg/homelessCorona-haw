@@ -79,7 +79,9 @@ function postToArray($formData, $categories){
 function checkUserExistence($username){
     global $userData;
     $files = array_diff(scandir($userData), array('.', '..'));
+    #Für jede Datei in /files/out/userData/
     foreach($files as $file) {
+        #Prüfen ob der Username in der Datei gefunden wurde
         if(is_numeric(stripos($file, $username.'_'))){
             return $file;
         } else {
@@ -87,25 +89,33 @@ function checkUserExistence($username){
         }
     }
 }
-#Funktion um die eingetragenen Formulardaten in eine Datei zu schreiben
+#Funktion um die eingetragenen Formulardaten in eine Datei zu schreiben (Optimierungsbedarf: User können andere überchreiben)
 function saveEntries($formData, $destination){
+    #Extrahieren des Usernamen aus dem Array
     $username = $formData['metaInfo']['meta-name'];
+    #Gibt es den angegebenen User schon wird die bisherige Datei gelöscht (überschrieben)
     $userFile = checkUserExistence($username, $destination);
+    #Dateipfad und -namen setzen (/files/out/userData/username_UnixTimestamp.json)
     $outputFile = $destination.$username.'_'.time().'.json';
     $content = json_encode($formData);
+    #Wenn User schon eine Datei hat soll diese gelöscht werden (Aktualisierung mit neuer Datei).
     if($userFile != false){
         unlink($destination.$userFile);
     }
+    #Schreiben der Datei mit angegebenen Daten
     $f = fopen($outputFile, 'w') or die('Unable to open file!');
     fwrite($f, $content);
 }
+
+#Funktion um die Einträge anhand eines Usernamen zu lesen
 function readEntries($username){
     global $userData;
     $userFile = checkUserExistence($username);
-    echo $userFile;
+    #Wenn User schon eine Datei hat wird diese ausgelesen und zurückgegeben
     if($userFile != false){
         $content = file_get_contents($userData.$userFile);
         return json_decode($content);
+    #Hat er keine Datei wird false zurückgegeben
     } else {
         return false;
     }
