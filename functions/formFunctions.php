@@ -1,6 +1,6 @@
 <?php
-$fileC = $inputFiles . 'categories.csv';
-$fileQ = $inputFiles . 'questions.csv';
+$fileC = $inputPath . 'categories.csv';
+$fileQ = $inputPath . 'questions.csv';
 #Funktion zum einlesen der CSV Dateien und umwandeln in ein Array
 function csvToArray($filepath){
     $csvParse = array_map('str_getcsv', file($filepath));
@@ -60,7 +60,6 @@ function postToArray($formData, $categories){
         'metaInfo'  => array(),
         'costInfo' => array()
     );
-    print_r($categories);
     foreach($categories as $category){
         #array_push($formArray['costInfo'], $category[1]); #Für späteres debugging noch behalten wegen Dopplung ([3] => Hygiene [Hygiene] => Array) evtl unnötig
         $formArray['costInfo'][$category[1]] = array();
@@ -74,5 +73,41 @@ function postToArray($formData, $categories){
         }
     }
     return $formArray;
+}
+
+#Funktion um zu überprüfen ob es schon Daten zu einem Usernamen gibt.
+function checkUserExistence($username){
+    global $userData;
+    $files = array_diff(scandir($userData), array('.', '..'));
+    foreach($files as $file) {
+        if(is_numeric(stripos($file, $username.'_'))){
+            return $file;
+        } else {
+            return false;
+        }
+    }
+}
+#Funktion um die eingetragenen Formulardaten in eine Datei zu schreiben
+function saveEntries($formData, $destination){
+    $username = $formData['metaInfo']['meta-name'];
+    $userFile = checkUserExistence($username, $destination);
+    $outputFile = $destination.$username.'_'.time().'.json';
+    $content = json_encode($formData);
+    if($userFile != false){
+        unlink($destination.$userFile);
+    }
+    $f = fopen($outputFile, 'w') or die('Unable to open file!');
+    fwrite($f, $content);
+}
+function readEntries($username){
+    global $userData;
+    $userFile = checkUserExistence($username);
+    echo $userFile;
+    if($userFile != false){
+        $content = file_get_contents($userData.$userFile);
+        return json_decode($content);
+    } else {
+        return false;
+    }
 }
 ?>
