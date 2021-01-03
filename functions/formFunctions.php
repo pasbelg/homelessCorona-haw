@@ -82,9 +82,11 @@ function checkUserExistence($token){
     $files = array_diff(scandir($userData), array('.', '..'));
     #Für jede Datei in /files/out/userData/
     foreach($files as $file) {
-        #Prüfen ob der Username in der Datei gefunden wurde
-        if(is_numeric(stripos($file, '_'.$token))){
-            return $file;
+        if(strlen($token) == 32){
+            #Prüfen ob schon eine Datei mit diesem Token exisitert.
+            if(is_numeric(stripos($file, '_'.$token))){
+                return $file;
+            }
         }
     }
     return false;
@@ -115,10 +117,35 @@ function readEntries($token){
     #Wenn User schon eine Datei hat wird diese ausgelesen und zurückgegeben
     if($userFile != false){
         $content = file_get_contents($userData.$userFile);
-        return json_decode($content);
+        return objectToArray(json_decode($content));
     #Hat er keine Datei wird false zurückgegeben
     } else {
         return false;
     }
+}
+
+#Wandelt die von json_decode zurückgegebenen Objekte in ein Array um
+function objectToArray($obj) {
+    if(is_object($obj)) $obj = (array) $obj;
+    if(is_array($obj)) {
+        $new = array();
+        foreach($obj as $key => $val) {
+            $new[$key] = objectToArray($val);
+        }
+    }
+    else $new = $obj;
+    return $new;       
+}
+
+#Addiert für jedes angekreuzte Feld die Kosten
+function calcExpenses($formArray){
+    $monthlyExpenses = 0;
+    #$formArray = get_object_vars($formArray);
+    foreach($formArray['costInfo'] as $category){
+        foreach($category as $expense){
+            $monthlyExpenses += $expense;
+        }
+    }
+    return $monthlyExpenses;
 }
 ?>
