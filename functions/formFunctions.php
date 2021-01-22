@@ -14,6 +14,8 @@ function csvToArray($filepath){
 }
 
 #Funktion zum generieren des Formulars anhand der erstellen Arrays aus den CSVs
+# Ich würde das ganze gerne in Arrays abspeichern und wiedergeben, um das Formular und alles flexibler gestalten zu können
+# Vielleicht den Infotext gar nicht hier verarbeiten sondern dann in einer neuen Loop.
 function genForm($categories, $questions){
     foreach($categories as $category){
         $qCount = 1;
@@ -21,12 +23,13 @@ function genForm($categories, $questions){
         echo '<br>';
         foreach($questions as $question){
             if($category[0] == $question[0]){
-                echo '<input type="checkbox" id="'.$question[1].'" name='.$category[1].$qCount.'" value="'.$question[2].'">
+                echo '<input type="checkbox" id="'.$question[1].'" name="q'.$category[0].'pos'.$qCount.'" value="'.$question[2].'"'.($question[4] == "ja" ? 'disabled="disabled"' : '').'">
                         <label for="'.$question[1].'">'.$question[1].'</label>';
                 echo '<br>';
                 $qCount++;
             }
         }
+        echo '<p>'.$category[2].'</p>';
         echo '<br><br><br>';
     }
 }
@@ -62,10 +65,12 @@ function postToArray($formData, $categories){
     );
     foreach($categories as $category){
         #array_push($formArray['costInfo'], $category[1]); #Für späteres debugging noch behalten wegen Dopplung ([3] => Hygiene [Hygiene] => Array) evtl unnötig
-        $formArray['costInfo'][$category[1]] = array();
+        $formArray['costInfo'][$category[0]] = array();
+        #echo 'Frage: '.$category[0].'<br>';
         foreach($formData as $key => $value){ #Für jeden Eintrag im $_POST-Array
-            if(strpos($key, $category[1]) !== false){ #strpos ist komisch https://stackoverflow.com/questions/35854071/strpos-not-working-for-a-certain-string?rq=1
-                array_push($formArray['costInfo'][$category[1]], $value);
+            #echo 'Inhalt: '.'q'.$category[0].'<br>';
+            if(strpos($key, 'q'.$category[0].'pos') !== false){ #strpos ist komisch https://stackoverflow.com/questions/35854071/strpos-not-working-for-a-certain-string?rq=1
+                array_push($formArray['costInfo'][$category[0]], $value);
                 unset($formData[$key]);
             } else if (strpos($key, 'meta') !== false) { #Alles bei dem im Schlüssel "meta" steht
                 $formArray['metaInfo'][$key] = $value;

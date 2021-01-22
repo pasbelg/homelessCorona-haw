@@ -7,5 +7,5 @@ $rootPath = __DIR__;
 # Pfad zu input Dateien
 $inputPath = $rootPath . '/files/in/';
 $outputPath = $rootPath . '/files/out/';
-$userData = $outputPath . '/userData/'
+$userData = $outputPath . '/userData/';
 ?>
