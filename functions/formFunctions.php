@@ -16,21 +16,14 @@ function csvToArray($filepath){
 #Funktion zum generieren des Formulars anhand der erstellen Arrays aus den CSVs
 # Ich würde das ganze gerne in Arrays abspeichern und wiedergeben, um das Formular und alles flexibler gestalten zu können
 # Vielleicht den Infotext gar nicht hier verarbeiten sondern dann in einer neuen Loop.
-function genForm($categories, $questions){
-    foreach($categories as $category){
-        $qCount = 1;
-        echo '<b>'.$category[1].'</b>';
-        echo '<br>';
-        foreach($questions as $question){
-            if($category[0] == $question[0]){
-                echo '<input type="checkbox" id="'.$question[1].'" name="q'.$category[0].'pos'.$qCount.'" value="'.$question[2].'"'.($question[4] == "ja" ? 'disabled="disabled"' : '').'">
-                        <label for="'.$question[1].'">'.$question[1].'</label>';
-                echo '<br>';
-                $qCount++;
-            }
+function genChoices($choices, $question){
+    foreach($choices as $choice){
+        $choiceCount = 1;
+        if($choice[0] == $question){
+            echo '<input type="checkbox" id="'.$choice[1].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice[2].'"'.($choice[4] == "ja" ? 'disabled="disabled"' : '').'">
+                    <label for="'.$choice[1].'">'.$choice[1].'</label>';
+            $choiceCount++;
         }
-        echo '<p>'.$category[2].'</p>';
-        echo '<br><br><br>';
     }
 }
 
@@ -69,7 +62,7 @@ function postToArray($formData, $categories){
         #echo 'Frage: '.$category[0].'<br>';
         foreach($formData as $key => $value){ #Für jeden Eintrag im $_POST-Array
             #echo 'Inhalt: '.'q'.$category[0].'<br>';
-            if(strpos($key, 'q'.$category[0].'pos') !== false){ #strpos ist komisch https://stackoverflow.com/questions/35854071/strpos-not-working-for-a-certain-string?rq=1
+            if(strpos($key, 'q'.$category[0].'choice') !== false){ #strpos ist komisch https://stackoverflow.com/questions/35854071/strpos-not-working-for-a-certain-string?rq=1
                 array_push($formArray['costInfo'][$category[0]], $value);
                 unset($formData[$key]);
             } else if (strpos($key, 'meta') !== false) { #Alles bei dem im Schlüssel "meta" steht
