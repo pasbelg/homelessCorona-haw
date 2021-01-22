@@ -21,7 +21,7 @@ function genChoices($choices, $question){
         $choiceCount = 1;
         if($choice[0] == $question){
             echo '<input type="checkbox" id="'.$choice[1].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice[2].'"'.($choice[4] == "ja" ? 'disabled="disabled"' : '').'">
-                    <label for="'.$choice[1].'">'.$choice[1].'</label>';
+                    <label for="'.$choice[1].'">'.$choice[1].'</label><br>';
             $choiceCount++;
         }
     }

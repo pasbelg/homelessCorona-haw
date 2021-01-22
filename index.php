@@ -14,18 +14,35 @@ require('functions/formFunctions.php');
 ?>
     <form action="result.php" method="post">
         <!--Bitte alle Metainformationen mit dem Namen meta- Kennzeichnen. Das ist für die Zuordung der Meta Infos nötig. -->
-        <label for="meta-name">Damit du die Daten wieder aufrufen kannst brauen gib ein Pseudonym oder einen Namen ab</label>
-        <input type="text" id="meta-name" name="meta-name">
+        <div class="formSection" id="section0">
+          <div class="question sectionRight">
+            <b><label for="meta-name">Bitte gib einen Pseudonym oder einen Namen ein</label></b><br>
+            <input type="text" id="meta-name" name="meta-name">
+          </div>
+          <a href="#section1"><button type="button">Nächste Frage</button></a>
+        </div>
         <!--Die anzukreuzenden Felder werden über die CSV-Dateien in files/in/ generiert -->
         <?php
         foreach(csvToArray($fileC) as $question){
-          echo $question[1];
-          echo '<br>';
-          genChoices(csvToArray($fileQ), $question[0]);
-          echo '<br><br>';
+          echo '<div class="formSection" id="section'.$question[0].'">
+                  <div class="question">
+                    <div class="questionCol sectionLeft">'.$question[2].'</div>
+                      <div class="questionCol sectionRight">';
+                        echo '<b>'.$question[1].'</b><br>';
+                        genChoices(csvToArray($fileQ), $question[0]);
+          echo '      </div>
+                    </div>
+                    <a href="#section'.($question[0]-1).'"><button type="button">Vorige Frage</button></a>
+                    <a href="#section'.($question[0]+1).'"><button type="button">Nächste Frage</button></a>
+                  </div>';
         }
         ?>
-      <p><input type="submit" /></p>
+      <div class="formSection" id="section<?php echo count(csvToArray($fileC))+1?>">
+          <div class="question">
+          <b><label for="submit">Vielen Dank für deine Angaben. Wenn du jetzt auf Senden</label></b><br>
+            <input type="submit" id="submit"  value="Mein Ergebnis"></input>
+          </div>
+      </div>
     </form>
   </body>
 </html>

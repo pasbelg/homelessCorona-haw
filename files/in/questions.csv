@@ -1,6 +1,45 @@
-Kategorie;Option;Preis
-1;Obdachlosenunterkunft (3€ Pro Tag 90€ im Monat);90
-4;Tägliches duschen (2€ Pro Tag 60 € im Monat);60
-2;Warme Mittagsmahlzeit (10€ Pro Tag 300€ im Monat);300
-3;HVV Monatskarte (60€ pro Monat);60
-2;Snack Mittags (5€ pro Tag 150 € im Monat);150
+Kategorie;Option;Preis;Beschreibung;Ausgegraut
+1;Feste Einrichtung;0;Durch Corona geschlossen;ja
+1;Wechselnde Einrichtung;20;Diebstahlpauschale;nein
+1;Draußen (nur mit Isomatte und Schlafsack);37;;nein
+1;Draußen (mit Isomatte und Schlafsack und Zelt);77;;nein
+2;Ausreichend Essen am Tag (Einrichtungen);0;Durch Corona geschlossen;ja
+2;Ausreichend Essen am Tag (Selbstversorung);390;;nein
+3;Ausreichend zu trinken (Selbstversorung und Trinkbrunnen);5;;ja
+3;Nicht ausreichend zu trinken (Trinkbrunnen und Gaststätten);0;Trinkbrunnen durch Corona geschlossen (Website Hamburg) Gestst�tten auch;nein
+2;Nicht ausreichend Essen am Tag (Selbstversorung);200;;nein
+2;Nicht ausreichend Essen am Tag (Fremdhilfe auf der Straße);0;Keine Leute auf der Straße;ja
+4;Extras für den Genuss;90;;
+7;Fahrrad (kaufen);95;;nein
+7;Fahrrad (klauen);0;;nein
+5;HVV Monatskarte Gesamtbereich;92;Sozialberechtigungsrabatt;nein
+5;HVV Monatskarte ab 9 Uhr;54;Sozialberechtigungsrabatt;nein
+5;Tageskarte (nur 14 Tage);94;;nein
+5;Einzelfahrkarte (nur 14 Fahrten);48;;nein
+5;Schwarz Fahren;60;Irgendwann kommt man ins Gefängis;nein
+6;Zu Fuß;0;Andauernde kälte;nein
+9;Jeden Tag duschen (Selbstversorgung);20;Eigentlich möglich aber sehr eingeschränkt durch Corona;nein
+8;Jeden zweiten Tag duschen (Selbstversorgung);10;Eigentlich möglich aber sehr eingeschränkt durch Corona;nein
+8;Einmal die Woche duschen (Selbstversorgung);5;Eigentlich möglich aber sehr eingeschränkt durch Corona;nein
+8;Duschen in Einrichtungen oder kostenlosen angeboten;0;Durch Corona geschlossen;ja
+9;Wie möchtest auf Toilette (Wildpinkeln und Gaststätte);0;Illegal und Gaststätte durch Corona sehr eingeschränkt;nein
+9;Wie möchtest auf Toilette (öffentliche Toiletten);90;öffentliche Toiletten in HH sind teuer;nein
+9;Wie möchtest auf Toilette (kostenlose Toiletten bei Einrichtungen);0;Eigentlich möglich aber sehr eingeschränkt durch Corona;ja
+10;Du möchtest eine eigene Zahnbürste haben um dir regelmäßig die Zähne putzen zu können;1;;nein
+10;Es ist kein Problem für dich in Einrichtungen Zähne zu putzen auch wenn es unregelmäßig ist?;0;;nein
+10;Ich brauche mir keine Zähne putzen;0;;nein
+11;Umfangreiche medizinische Versorgung (mit Apothekeund und Arztbesuchen);50;Sollten wir noch ausarbeiten;nein
+11;Eingeschränkte medizinische Versorgung (nur in öffentlichen Einrichtungen);0;Sollten wir noch ausarbeiten;ja
+12;Frauenhygiene;3;;nein
+13;Ich möchte regelmäßig Zigraretten konsumieren;150;Eine Packung täglich;nein
+13;Ich möchte regelmäßig Alkohol konsumieren;150;eine Flasche billig Vodka täglich;nein
+14;Ich bin schwerst Abhängig von legalen Substanzen;450;3 Flaschen billig Vodka täglich;nein
+14;Ich bin Abhängig von illegalen Substanzen;1000;Genaue beschreibung wie sich die kosten hier aufschl�sseln und welche unterschiede es gibt;nein
+15;Uneingeschränkte Aufbewahrungsmöglichkeitn;720;Muss nochmal mit anderer Gruppe überarbeitet werden;nein
+15;Stark eingeschränkte Aufbewahrungsmöglihckeiten (bei Einrichtungen);0;;ja
+16;Hund;30;;nein
+16;Andere Tiere;10;Nagetiere usw.;nein
+17;Kleidung;10;Teilweise selbstgekauft teilweise geschenkt;nein
+18;Ich möchte unterwegs das Internet nutzen und Kommunizieren können;10;Die Anschffung des Geräts ist schwer zu berechenn deswegen nicht wirklich einbegriffen;nein
+18;Mir reicht es den Zeitlich sehr beschränkten Internetzugang in einer Bibliothek zu nutzen;0;Gewisse Hygiene und nicht zu viel Gepäck um dort rein zu dürfen Öffnungszeiten stark beschr�nkt;nein
+18;Ich möchte regelmäßig in einem Internetcafe einen Internetzugang haben;10;Etwas flexibler als Bib und keine verpflichtungen wie bei einem Handyvertrag;nein
