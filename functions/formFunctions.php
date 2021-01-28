@@ -27,6 +27,19 @@ function genChoices($choices, $question){
     }
 }
 
+function genPosition($expenses, $question){
+    $positionExpense = 0;
+    foreach($expenses as $expense){
+        $positionExpense += $expense;
+    }
+    if($positionExpense > 0){
+        $position = '<li class="line"><span class="item">'.$question[3].'</span><span class="price">'.$positionExpense.' €</span><li>';
+    } else {
+        $position = '';
+    }
+    return $position;
+}
+
 /*Funktion zum sortieren der übertragenen Formulardaten
 Zielstruktur:
 Array
