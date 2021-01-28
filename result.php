@@ -11,8 +11,6 @@ require('functions/formFunctions.php');
     <title>Was kostet die Straße?</title>
   </head>
   <body>*/
-
-
 #Beim aufrufen der Seite wird überprüft ob ein Token mitgegeben wurde.
 #Wenn ja wird überprüft ob es für den Token schon eine Datei gibt.
 #Gibt es eine wird direkt das Ergebnis ausgegeben
@@ -20,13 +18,11 @@ require('functions/formFunctions.php');
 if(isset($_GET['token'])){
     $result = readEntries($_GET['token']);
     if($result != false){
-        $link = $_SERVER['REQUEST_URI'];
-        echo 'Hier ist dein Ergebnis:<br>';
+        $link = '<a href="' . $_SERVER['REQUEST_URI'] .'">'.  $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] .' </a>';
+        $positions = $result['costInfo'];
         #print("<pre>".print_r($result,true)."</pre>");
         $monthlyExpenses = calcExpenses($result);
-        echo 'Deine monatlichen Kosten sind: ' . $monthlyExpenses . ' €<br>';
-        echo 'Jährlich sind das: ' . $monthlyExpenses * 12 . ' €<br>';
-        echo 'Dein Ergebnis kann für 30 Tage mit diesem Link aufgerufen werden: <a href="' . $link .'">'.  $_SERVER['HTTP_HOST'] . $link .' </a>';
+        #<a href="' . $link .'">'.  $_SERVER['HTTP_HOST'] . $link .' </a>
     } else {
         echo 'Deine Daten wurden leider nicht gefunden. <a href="index.php">Hier</a> kannst du die Kosten auf der Straße erneut berechnen';
     }
@@ -43,3 +39,23 @@ if(isset($_GET['token'])){
 
 }
 ?>
+<p id="staticResultText">Hier ist dein Ergebnis als Kostenaufstellung und Gesamtergebnis für einen Monat. Du kannst dieses Ergebnis unter folgendem Link abrufen: <?php echo $link;?></p>
+<div id="resultReceipt">
+            <h2 class="title">Vielen Dank.</h2>
+            <p class="subtitle">Hier sind deine monatlichen Ausgaben:</p>
+            <ul class="lines">
+                <?php
+                foreach(csvToArray($fileC) as $question){
+                    $position = genPosition($positions[$question[0]], $question);
+                    echo $position;
+                }
+                ?>
+            </ul>
+      <p class="total">
+        <span class="total__item">Gesamt</span>
+        <span class="total__price"><?php echo $monthlyExpenses;?> €</span>
+      </p>
+      <br>
+    </div>
+            </body>
+            </html>
