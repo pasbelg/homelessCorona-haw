@@ -12,6 +12,7 @@ require('functions/formFunctions.php');
   </head>
   <body>*/
 ?>
+<div class="wrapper">
     <form action="result.php" method="post">
         <!--Bitte alle Metainformationen mit dem Namen meta- Kennzeichnen. Das ist für die Zuordung der Meta Infos nötig. -->
         <div class="formSection" id="section0">
@@ -44,5 +45,6 @@ require('functions/formFunctions.php');
           </div>
       </div>
     </form>
+      </div>
   </body>
 </html>
