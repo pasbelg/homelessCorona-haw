@@ -3,13 +3,11 @@ $fileC = $inputPath . 'categories.csv';
 $fileQ = $inputPath . 'questions.csv';
 #Funktion zum einlesen der CSV Dateien und umwandeln in ein Array
 function csvToArray($filepath){
-    $csvParse = array_map('str_getcsv', file($filepath));
+    $csvParse = file($filepath);
     $header = array_shift($csvParse);
-    $header = explode(';', $header[0]);
-    foreach($csvParse as $row){
-        foreach($row as $data){
-            $csvData[] = explode(';', $data);
-        }
+    $header = explode(';', $header);
+    foreach($csvParse as $rowData){
+        $csvData[] = explode(';', $rowData);
     }
     $rowCount = 0;
     foreach($csvData as $row){
@@ -53,8 +51,13 @@ function genResultText($selection, $questionsData, $choicesData){
     $resultText = '';
     foreach($selection as $questionID => $question){
         if(!empty($question)){
-            foreach($question as $choices){
-                $resultText .= $choices;
+            foreach($question as $choiceID => $selectedChoices){
+                foreach($choicesData as $availableChoices){
+                    if($questionID == $availableChoices['questionID'] AND $choiceID == $availableChoices['position']){
+                        $resultText .= $availableChoices['description'].' ';
+                    }
+                }
+                
             }
         }
     }
