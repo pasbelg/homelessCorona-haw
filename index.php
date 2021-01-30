@@ -25,16 +25,16 @@ require('functions/formFunctions.php');
         <!--Die anzukreuzenden Felder werden über die CSV-Dateien in files/in/ generiert -->
         <?php
         foreach(csvToArray($fileC) as $question){
-          echo '<div class="formSection" id="section'.$question[0].'">
+          echo '<div class="formSection" id="section'.$question['questionID'].'">
                   <div class="question">
-                    <div class="questionCol sectionLeft">'.$question[2].'</div>
+                    <div class="questionCol sectionLeft">'.$question['description'].'</div>
                       <div class="questionCol sectionRight">';
-                        echo '<b>'.$question[1].'</b><br>';
-                        genChoices(csvToArray($fileQ), $question[0]);
+                        echo '<b>'.$question['text'].'</b><br>';
+                        genChoices(csvToArray($fileQ), $question['questionID']);
           echo '      </div>
                     </div>
-                    <a href="#section'.($question[0]-1).'"><button type="button">Vorige Frage</button></a>
-                    <a href="#section'.($question[0]+1).'"><button type="button">Nächste Frage</button></a>
+                    <a href="#section'.($question['questionID']-1).'"><button type="button">Vorige Frage</button></a>
+                    <a href="#section'.($question['questionID']+1).'"><button type="button">Nächste Frage</button></a>
                   </div>';
         }
         ?>
