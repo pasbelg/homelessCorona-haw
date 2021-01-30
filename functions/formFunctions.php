@@ -4,11 +4,20 @@ $fileQ = $inputPath . 'questions.csv';
 #Funktion zum einlesen der CSV Dateien und umwandeln in ein Array
 function csvToArray($filepath){
     $csvParse = array_map('str_getcsv', file($filepath));
-    array_shift($csvParse);
+    $header = array_shift($csvParse);
+    $header = explode(';', $header[0]);
     foreach($csvParse as $row){
         foreach($row as $data){
             $csvData[] = explode(';', $data);
         }
+    }
+    $rowCount = 0;
+    foreach($csvData as $row){
+        foreach($header as $key => $description){
+            $csvData[$rowCount][$description] = $csvData[$rowCount][$key];
+            unset($csvData[$rowCount][$key]);
+        }
+        $rowCount++;
     }
     return $csvData;
 }
@@ -18,10 +27,10 @@ function csvToArray($filepath){
 # Vielleicht den Infotext gar nicht hier verarbeiten sondern dann in einer neuen Loop.
 function genChoices($choices, $question){
     foreach($choices as $choice){
-        $choiceCount = 1;
-        if($choice[0] == $question){
-            echo '<input type="checkbox" id="'.$choice[1].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice[2].'"'.($choice[4] == "ja" ? 'disabled="disabled"' : '').'">
-                    <label for="'.$choice[1].'">'.$choice[1].'</label><br>';
+        $choiceCount = $choice['position'];
+        if($choice['questionID'] == $question){
+            echo '<input type="checkbox" id="'.$choice['text'].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice['cost'].'"'.($choice['greyed'] == "ja" ? 'disabled="disabled"' : '').'">
+                    <label for="'.$choice['text'].'">'.$choice['text'].'</label><br>';
             $choiceCount++;
         }
     }
@@ -33,11 +42,23 @@ function genPosition($expenses, $question){
         $positionExpense += $expense;
     }
     if($positionExpense > 0){
-        $position = '<li class="line"><span class="item">'.$question[3].'</span><span class="price">'.$positionExpense.' €</span><li>';
+        $position = '<li class="line"><span class="item">'.$question['category'].'</span><span class="price">'.$positionExpense.' €</span><li>';
     } else {
         $position = '';
     }
     return $position;
+}
+
+function genResultText($selection, $questionsData, $choicesData){
+    $resultText = '';
+    foreach($selection as $questionID => $question){
+        if(!empty($question)){
+            foreach($question as $choices){
+                $resultText .= $choices;
+            }
+        }
+    }
+    return $resultText;
 }
 
 /*Funktion zum sortieren der übertragenen Formulardaten
@@ -64,19 +85,22 @@ Array
         )
 )
 */
-function postToArray($formData, $categories){
+function postToArray($formData, $questions){
     $formArray = array(
         'metaInfo'  => array(),
         'costInfo' => array()
     );
-    foreach($categories as $category){
+    foreach($questions as $question){
         #array_push($formArray['costInfo'], $category[1]); #Für späteres debugging noch behalten wegen Dopplung ([3] => Hygiene [Hygiene] => Array) evtl unnötig
-        $formArray['costInfo'][$category[0]] = array();
-        #echo 'Frage: '.$category[0].'<br>';
+        $formArray['costInfo'][$question['questionID']] = array();
+        #echo 'Frage: '.$question['questionID'].'<br>';
         foreach($formData as $key => $value){ #Für jeden Eintrag im $_POST-Array
-            #echo 'Inhalt: '.'q'.$category[0].'<br>';
-            if(strpos($key, 'q'.$category[0].'choice') !== false){ #strpos ist komisch https://stackoverflow.com/questions/35854071/strpos-not-working-for-a-certain-string?rq=1
-                array_push($formArray['costInfo'][$category[0]], $value);
+            #echo 'Inhalt: '.'q'.$question['questionID'].'<br>';
+            if(strpos($key, 'q'.$question['questionID'].'choice') !== false){ #strpos ist komisch https://stackoverflow.com/questions/35854071/strpos-not-working-for-a-certain-string?rq=1
+                #array_push($formArray['costInfo'][$question['questionID']], $value);
+                $choiceID = explode('choice', $key)[1];
+                $formArray['costInfo'][$question['questionID']][$choiceID] = $value;
+                #$formArray[$rowCount][$description] = $csvData[$rowCount][$key];
                 unset($formData[$key]);
             } else if (strpos($key, 'meta') !== false) { #Alles bei dem im Schlüssel "meta" steht
                 $formArray['metaInfo'][$key] = $value;
