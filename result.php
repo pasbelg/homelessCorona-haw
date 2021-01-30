@@ -38,6 +38,7 @@ if(isset($_GET['token'])){
     }
 
 }
+
 ?>
 <p id="staticResultText">Hier ist dein Ergebnis als Kostenaufstellung und Gesamtergebnis für einen Monat. Du kannst dieses Ergebnis unter folgendem Link abrufen: <?php echo $link;?></p>
 <div id="resultReceipt">
@@ -46,7 +47,7 @@ if(isset($_GET['token'])){
             <ul class="lines">
                 <?php
                 foreach(csvToArray($fileC) as $question){
-                    $position = genPosition($positions[$question[0]], $question);
+                    $position = genPosition($positions[$question['questionID']], $question);
                     echo $position;
                 }
                 ?>
@@ -57,5 +58,6 @@ if(isset($_GET['token'])){
       </p>
       <br>
     </div>
+    <p id="generatedResultText"><?php echo genResultText($positions, csvToArray($fileC), csvToArray($fileQ))?></p>
             </body>
             </html>
