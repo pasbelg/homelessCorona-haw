@@ -5,8 +5,10 @@ $fileQ = $inputPath . 'questions.csv';
 function csvToArray($filepath){
     $csvParse = file($filepath);
     $header = array_shift($csvParse);
+    $header = rtrim($header);
     $header = explode(';', $header);
     foreach($csvParse as $rowData){
+        $rowData = rtrim($rowData);
         $csvData[] = explode(';', $rowData);
     }
     $rowCount = 0;
@@ -27,9 +29,8 @@ function genChoices($choices, $question){
     foreach($choices as $choice){
         $choiceCount = $choice['position'];
         if($choice['questionID'] == $question){
-            echo '<input type="checkbox" id="'.$choice['text'].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice['cost'].'"'.($choice['greyed'] == "ja" ? 'disabled="disabled"' : '').'">
+            echo '<input type="checkbox" id="'.$choice['text'].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice['cost'].'"'.($choice['greyed'] == 'ja' ? 'disabled="disabled"' : '').'">
                     <label for="'.$choice['text'].'">'.$choice['text'].'</label><br>';
-            $choiceCount++;
         }
     }
 }
@@ -47,17 +48,23 @@ function genPosition($expenses, $question){
     return $position;
 }
 
-function genResultText($selection, $questionsData, $choicesData){
+function genResultText($selection, $allQuestions, $allChoices){
     $resultText = '';
     foreach($selection as $questionID => $question){
         if(!empty($question)){
             foreach($question as $choiceID => $selectedChoices){
-                foreach($choicesData as $availableChoices){
-                    if($questionID == $availableChoices['questionID'] AND $choiceID == $availableChoices['position']){
-                        $resultText .= $availableChoices['description'].' ';
+                foreach($allChoices as $availableChoice){
+                    if($questionID == $availableChoice['questionID'] AND $choiceID == $availableChoice['position']){
+                        $resultText .= $availableChoice['description'].' ';
                     }
                 }
                 
+            }
+        } else {
+            foreach($allQuestions as $question){
+                if($questionID == $question['questionID']){
+                    $resultText .= $question['choicesMissingInfo'].' ';
+                }
             }
         }
     }
