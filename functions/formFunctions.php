@@ -35,6 +35,23 @@ function genChoices($choices, $question){
     }
 }
 
+function spamCheck($ip, $savedDataLocation){
+    $newToken = hash('md5', $ip.time());
+    $files = scandir($savedDataLocation);
+    $files = array_diff($files, array('.', '..'));
+    foreach($files as $file){
+        $fileToken = str_replace('.json', '', explode('_', $file)[1]);
+        for ($i = -5; $i <= 5; $i++) {
+            $time = time()+$i;
+            $tokenCheck = hash('md5', $ip.$time);
+            if($fileToken == $tokenCheck){
+                return false;
+            }
+        }
+    }
+    return $newToken;
+}
+
 function genPosition($expenses, $question){
     $positionExpense = 0;
     foreach($expenses as $expense){
@@ -95,7 +112,7 @@ Array
         )
 )
 */
-function postToArray($formData, $questions){
+function postToArray($formData, $questions, $token){
     $formArray = array(
         'metaInfo'  => array(),
         'costInfo' => array()
@@ -116,7 +133,8 @@ function postToArray($formData, $questions){
                 $formArray['metaInfo'][$key] = $value;
             }
         }
-        $formArray['metaInfo']['meta-token'] = hash('md5', $formData['meta-name'].time());
+        #$formArray['metaInfo']['meta-token'] = hash('md5', $formData['meta-ip'].time());
+        $formArray['metaInfo']['meta-token'] = $token;
     }
     return $formArray;
 }
@@ -139,8 +157,6 @@ function checkUserExistence($token){
 #Funktion um die eingetragenen Formulardaten in eine Datei zu schreiben (Optimierungsbedarf: User können andere überchreiben)
 function saveEntries($formData, $token){
     global $userData;
-    #Extrahieren des Usernamen aus dem Array
-    $token = $formData['metaInfo']['meta-token'];
     #Gibt es den angegebenen User schon wird die bisherige Datei gelöscht (überschrieben)
     $userFile = checkUserExistence($token, $userData);
     #Dateipfad und -namen setzen (/files/out/userData/UnixTimestamp_MD5Hash(username, UnixTimestamp).json)
