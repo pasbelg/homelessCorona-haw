@@ -15,6 +15,9 @@ require('functions/formFunctions.php');
 #Wenn ja wird überprüft ob es für den Token schon eine Datei gibt.
 #Gibt es eine wird direkt das Ergebnis ausgegeben
 #Wurde keine Token mitgegeben wird eine neue Datei generiert.
+$ip = $_SERVER['REMOTE_ADDR'];
+$token = spamCheck($ip, $userData);
+echo $token;
 if(isset($_GET['token'])){
     $result = readEntries($_GET['token']);
     if($result != false){
@@ -24,17 +27,17 @@ if(isset($_GET['token'])){
         $monthlyExpenses = calcExpenses($result);
         #<a href="' . $link .'">'.  $_SERVER['HTTP_HOST'] . $link .' </a>
     } else {
-        echo 'Deine Daten wurden leider nicht gefunden. <a href="index.php">Hier</a> kannst du die Kosten auf der Straße erneut berechnen';
+        header('Location: error.php');
     }
 } else {
-    if (!empty($_POST['meta-name'])) {
-        print_r($_POST);
-        $input = postToArray($_POST, csvToArray($fileC));
-        saveEntries($input, $input['metaInfo']['meta-token']);
+    if ($token) {
+        $_POST['meta-ip'] = $ip;
+        $input = postToArray($_POST, csvToArray($fileC), $token);
+        saveEntries($input, $token);
         header('Location: ?token=' . $input['metaInfo']['meta-token']);
         die();
     } else {
-        echo 'Die Daten konnten aufgrund eines Fehlers nicht gespeichert werden. Hast du deinen Namen angegeben? Bitte fülle das <a href="index.php">Formular<a> nochmal aus';
+        header('Location: error.php');
     }
 
 }
@@ -58,6 +61,7 @@ if(isset($_GET['token'])){
       </p>
       <br>
     </div>
+    <h1>Dein Leben auf der Straße</h1>
     <p id="generatedResultText"><?php echo genResultText($positions, csvToArray($fileC), csvToArray($fileQ))?></p>
             </body>
             </html>
