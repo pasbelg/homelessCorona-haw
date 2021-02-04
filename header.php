@@ -11,3 +11,17 @@ require('functions/formFunctions.php');
     <title>Was kostet die Straße?</title>
   </head>
   <body>
+  <section class="header">
+      <nav>
+        <div class="logo">
+          <img src="https://hungry-varahamihira-72424b.netlify.app/icons/virus%201.svg" alt="logo" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="/">Start</a></li>
+          <li><a class="active" href="/#projects">Projekte</a></li>
+          <li><a href="/">Karte</a></li>
+          <li><a href="/impressum/">Impressum</a></li>
+        </ul>
+      </nav>
+    </section>
+    <section class="text">

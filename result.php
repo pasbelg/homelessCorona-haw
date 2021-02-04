@@ -17,7 +17,6 @@ require('functions/formFunctions.php');
 #Wurde keine Token mitgegeben wird eine neue Datei generiert.
 $ip = $_SERVER['REMOTE_ADDR'];
 $token = spamCheck($ip, $userData);
-echo $token;
 if(isset($_GET['token'])){
     $result = readEntries($_GET['token']);
     if($result != false){
@@ -41,9 +40,8 @@ if(isset($_GET['token'])){
     }
 
 }
-
 ?>
-<p id="staticResultText">Hier ist dein Ergebnis als Kostenaufstellung und Gesamtergebnis für einen Monat. Du kannst dieses Ergebnis unter folgendem Link abrufen: <?php echo $link;?></p>
+<div class="wrapper">
 <div id="resultReceipt">
             <h2 class="title">Vielen Dank.</h2>
             <p class="subtitle">Hier sind deine monatlichen Ausgaben:</p>
@@ -61,7 +59,11 @@ if(isset($_GET['token'])){
       </p>
       <br>
     </div>
-    <h1>Dein Leben auf der Straße</h1>
-    <p id="generatedResultText"><?php echo genResultText($positions, csvToArray($fileC), csvToArray($fileQ))?></p>
-            </body>
+    <h2>Dein Leben auf der Straße</h2>
+    <div id="generatedResultText"><?php echo genResultText($positions, csvToArray($fileC), csvToArray($fileQ))?></div>
+    <div>Du kannst dieses Ergebnis unter folgendem Link abrufen: <?php echo $link;?></div>
+            </div>            
+</section>
+
+</body>
             </html>

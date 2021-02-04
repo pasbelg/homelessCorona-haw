@@ -11,16 +11,20 @@ require('functions/formFunctions.php');
     <title>Was kostet die Straße?</title>
   </head>
   <body>*/
-?>
+  ?>
 <div class="wrapper">
     <form action="result.php" method="post">
         <!--Bitte alle Metainformationen mit dem Namen meta- Kennzeichnen. Das ist für die Zuordung der Meta Infos nötig. -->
         <div class="formSection" id="section0">
+        <div class="question">
+        <div class="questionCol sectionLeft">
+        <img src="https://hungry-varahamihira-72424b.netlify.app/img/becher.jpg" alt="logo" />
+        </div>
           <div class="question sectionRight">
-            <b><label for="meta-name">Bitte gib einen Pseudonym oder einen Namen ein</label></b><br>
-            <input type="text" id="meta-name" name="meta-name">
+          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+          <a href="#section1"><button type="button">Jetzt Starten</button></a>
           </div>
-          <a href="#section1"><button type="button">Nächste Frage</button></a>
+          </div>
         </div>
         <!--Die anzukreuzenden Felder werden über die CSV-Dateien in files/in/ generiert -->
         <?php
@@ -28,13 +32,14 @@ require('functions/formFunctions.php');
           echo '<div class="formSection" id="section'.$question['questionID'].'">
                   <div class="question">
                     <div class="questionCol sectionLeft">'.$question['description'].'</div>
-                      <div class="questionCol sectionRight">';
+                    <div class="questionCol sectionRight">';
                         echo '<b>'.$question['text'].'</b><br>';
                         genChoices(csvToArray($fileQ), $question['questionID']);
-          echo '      </div>
+          echo '     <br><a href="#section'.($question['questionID']-1).'"><button type="button">Vorige Frage</button></a>
+          <a href="#section'.($question['questionID']+1).'"><button type="button">Nächste Frage</button></a>
+                      </div>
                     </div>
-                    <a href="#section'.($question['questionID']-1).'"><button type="button">Vorige Frage</button></a>
-                    <a href="#section'.($question['questionID']+1).'"><button type="button">Nächste Frage</button></a>
+                    
                   </div>';
         }
         ?>
