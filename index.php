@@ -13,14 +13,35 @@ require('functions/formFunctions.php');
   <body>*/
   ?>
 <div class="wrapper">
-    <form action="result.php" method="post">
+    <form id="form" action="result.php" method="post">
         <!--Bitte alle Metainformationen mit dem Namen meta- Kennzeichnen. Das ist für die Zuordung der Meta Infos nötig. -->
         <div class="formSection" id="section0">
         <div class="question">
         <div class="questionCol sectionLeft">
         <img src="https://hungry-varahamihira-72424b.netlify.app/img/becher.jpg" alt="logo" />
         </div>
+        <!--Code von Basti-->  
+        <!--
+          <div class="left-box">
+            <img src="/img/frau.jpg" alt="frau" />
+            <h2>Frauen</h2>
+            <br />
+            <p>
+                Verfasst von: <br />
+                Name1, Name2, Name3
+            </p>
+          </div>
+          <div class="right-box">
+            <h2>Subtitle</h2>
+            <hr />
+            <p>bla</p>
+          </div>
+-->
+ <!--Code von Pascal-->        
+        
           <div class="question sectionRight">
+          <h2>Kosten</h2>
+          <br>
           <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
           <a href="#section1"><button type="button">Jetzt Starten</button></a>
           </div>
@@ -45,8 +66,13 @@ require('functions/formFunctions.php');
         ?>
       <div class="formSection" id="section<?php echo count(csvToArray($fileC))+1?>">
           <div class="question">
-          <b><label for="submit">Vielen Dank für deine Angaben. Wenn du jetzt auf Senden</label></b><br>
-            <input type="submit" id="submit"  value="Mein Ergebnis"></input>
+            <div id="formSubmit">
+            <a class="effect1" href="javascript:{}" onclick="document.getElementById('form').submit(); return false;">Mein Ergebnis
+            <!--<input class="effect1" id="submitButton" type="submit" id="submit"  value="Mein Ergebnis">-->
+          <span class="bg"></span>
+          </a>
+          </input>
+      </div>
           </div>
       </div>
     </form>
