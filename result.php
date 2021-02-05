@@ -58,11 +58,16 @@ if(isset($_GET['token'])){
         <span class="total__price"><?php echo $monthlyExpenses;?> €</span>
       </p>
       <br>
+</div>
+    
+    <div id="generatedResultText">
+        <h2 >Dein Leben auf der Straße</h2>    
+        <?php echo genResultText($positions, csvToArray($fileC), csvToArray($fileQ))?>
+        <br><br><br>
+        <div>Du kannst dieses Ergebnis unter folgendem Link abrufen:<br> <?php echo $link;?></div>    
     </div>
-    <h2>Dein Leben auf der Straße</h2>
-    <div id="generatedResultText"><?php echo genResultText($positions, csvToArray($fileC), csvToArray($fileQ))?></div>
-    <div>Du kannst dieses Ergebnis unter folgendem Link abrufen: <?php echo $link;?></div>
-            </div>            
+        
+    </div>            
 </section>
 
 </body>
