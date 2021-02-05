@@ -49,26 +49,27 @@ require('functions/formFunctions.php');
         </div>
         <!--Die anzukreuzenden Felder werden über die CSV-Dateien in files/in/ generiert -->
         <?php
+        $sectionCounter = 1;
         foreach(csvToArray($fileC) as $question){
-          echo '<div class="formSection" id="section'.$question['questionID'].'">
+          echo '<div class="formSection" id="section'.$sectionCounter.'">
                   <div class="question">
                     <div class="questionCol sectionLeft">'.$question['description'].'</div>
                     <div class="questionCol sectionRight">';
                         echo '<b>'.$question['text'].'</b><br>';
                         genChoices(csvToArray($fileQ), $question['questionID']);
-          echo '     <br><a href="#section'.($question['questionID']-1).'"><button type="button">Vorige Frage</button></a>
-          <a href="#section'.($question['questionID']+1).'"><button type="button">Nächste Frage</button></a>
+          echo '     <br><a href="#section'.($sectionCounter-1).'"><button type="button">Vorige Frage</button></a>
+          <a href="#section'.($sectionCounter+1).'"><button type="button">Nächste Frage</button></a>
                       </div>
                     </div>
-                    
                   </div>';
+                  $sectionCounter++;
         }
         ?>
       <div class="formSection" id="section<?php echo count(csvToArray($fileC))+1?>">
           <div class="question">
             <div id="formSubmit">
             <a class="effect1" href="javascript:{}" onclick="document.getElementById('form').submit(); return false;">Mein Ergebnis
-            <!--<input class="effect1" id="submitButton" type="submit" id="submit"  value="Mein Ergebnis">-->
+            <!-- Alter Button <input id="submitButton" type="submit" id="submit"  value="Mein Ergebnis">-->
           <span class="bg"></span>
           </a>
           </input>
