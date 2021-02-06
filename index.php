@@ -15,39 +15,44 @@ require('functions/formFunctions.php');
 <div class="wrapper">
     <form id="form" action="result.php" method="post">
         <!--Bitte alle Metainformationen mit dem Namen meta- Kennzeichnen. Das ist für die Zuordung der Meta Infos nötig. -->
-        <div class="formSection" id="section0">
-        <div class="question">
-        <div class="questionCol sectionLeft">
-        <img src="https://hungry-varahamihira-72424b.netlify.app/img/becher.jpg" alt="logo" />
-        </div>
+
+        
         <!--Code von Basti-->  
-        <!--
+        <div class="formSection" id="section0">
           <div class="left-box">
-            <img src="/img/frau.jpg" alt="frau" />
-            <h2>Frauen</h2>
+            <img src="https://hungry-varahamihira-72424b.netlify.app/img/becher.jpg" alt="becher" />
+            <h2>Kosten</h2>
             <br />
             <p>
                 Verfasst von: <br />
-                Name1, Name2, Name3
+                Emma, Lisa und Pascal
             </p>
           </div>
           <div class="right-box">
             <h2>Subtitle</h2>
             <hr />
-            <p>bla</p>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <a href="#section1">Jetzt Starten</a>  
           </div>
--->
+</div>
+
  <!--Code von Pascal-->        
-        
+<!--
+ <div class="formSection" id="section0">
+        <div class="question">
+        <div class="questionCol sectionLeft">
+          <img src="https://hungry-varahamihira-72424b.netlify.app/img/becher.jpg" alt="logo" />
+        </div>
           <div class="question sectionRight">
-          <h2>Kosten</h2>
-          <br>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-          <br><br><br><br>
-          <a href="#section1">Jetzt Starten</a>
-          </div>
+            <h2>Kosten</h2>
+            <br>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <br><br><br><br>
+            <a href="#section1">Jetzt Starten</a>
+            </div>
           </div>
         </div>
+-->
         <!--Die anzukreuzenden Felder werden über die CSV-Dateien in files/in/ generiert -->
         <?php
         $sectionCounter = 1;

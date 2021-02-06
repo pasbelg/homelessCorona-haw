@@ -27,6 +27,7 @@
  }
  .sectionRight{
     width: 60%;
+
 }
 
 .formSection a{
@@ -38,9 +39,6 @@
   border-radius: 10px;
   margin-left: 5vw;
   padding: 17px 15px 17px 15px;
-}
-.formSection a button{
-  padding: 5px 5px 5px 5px;
 }
   .formSection a svg{
     margin-bottom: -5px;
