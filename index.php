@@ -43,7 +43,8 @@ require('functions/formFunctions.php');
           <h2>Kosten</h2>
           <br>
           <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-          <a href="#section1"><button type="button">Jetzt Starten</button></a>
+          <br><br><br><br>
+          <a href="#section1">Jetzt Starten</a>
           </div>
           </div>
         </div>
@@ -57,8 +58,9 @@ require('functions/formFunctions.php');
                     <div class="questionCol sectionRight">';
                         echo '<b>'.$question['text'].'</b><br>';
                         genChoices(csvToArray($fileQ), $question['questionID']);
-          echo '     <br><a href="#section'.($sectionCounter-1).'"><button type="button">Vorige Frage</button></a>
-          <a href="#section'.($sectionCounter+1).'"><button type="button">Nächste Frage</button></a>
+          echo '          <br><br><br><br>
+                          <a href="#section'.($sectionCounter-1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" color="255 255 255" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+                          <a href="#section'.($sectionCounter+1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg></a>
                       </div>
                     </div>
                   </div>';
