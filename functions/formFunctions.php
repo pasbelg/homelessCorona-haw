@@ -29,7 +29,7 @@ function genChoices($choices, $question){
     foreach($choices as $choice){
         $choiceCount = $choice['position'];
         if($choice['questionID'] == $question){
-            echo '<input type="checkbox" id="'.$choice['text'].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice['cost'].'"'.($choice['greyed'] == 'ja' ? 'disabled="disabled"' : '').'">
+            echo '<input type="checkbox" class="check" id="'.$choice['text'].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice['cost'].'"'.($choice['greyed'] == 'ja' ? 'disabled="disabled"' : '').'">
                     <label for="'.$choice['text'].'">'.$choice['text'].'</label><br>';
         }
     }
