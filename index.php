@@ -20,7 +20,7 @@ require('functions/formFunctions.php');
         <!--Code von Basti-->  
         <div class="formSection" id="section0">
           <div class="left-box">
-            <img src="https://hungry-varahamihira-72424b.netlify.app/img/becher.jpg" alt="becher" />
+            <img src="https://pensive-mahavira-34cb15.netlify.app/img/becher.jpg" alt="becher" />
             <h2>Kosten</h2>
             <br />
             <p>
@@ -32,7 +32,7 @@ require('functions/formFunctions.php');
             <h2>Subtitle</h2>
             <hr />
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-            <a href="#section1">Jetzt Starten</a>  
+            <a class="formNav" href="#section1">Jetzt Starten</a>  
           </div>
 </div>
 
@@ -64,8 +64,8 @@ require('functions/formFunctions.php');
                         echo '<b>'.$question['text'].'</b><br>';
                         genChoices(csvToArray($fileQ), $question['questionID']);
           echo '          <br><br><br><br>
-                          <a href="#section'.($sectionCounter-1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" color="255 255 255" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
-                          <a href="#section'.($sectionCounter+1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg></a>
+                          <a class="formNav" href="#section'.($sectionCounter-1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" color="255 255 255" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
+                          <a class="formNav" href="#section'.($sectionCounter+1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg></a>
                       </div>
                     </div>
                   </div>';
