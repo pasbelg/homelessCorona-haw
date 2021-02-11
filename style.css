@@ -27,22 +27,22 @@
  }
  .sectionRight{
     width: 60%;
-
 }
 
-.formSection a{
+.formNav{
   border: 1px solid white;
   color: white;
   fill: white;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  margin-left: 5vw;
+  margin-right: 5vw;
   padding: 17px 15px 17px 15px;
 }
   .formSection a svg{
     margin-bottom: -5px;
 }
+
   #resultReceipt {
     width: 30vw;
     min-height: 800px;
