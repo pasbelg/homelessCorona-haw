@@ -1,44 +1,69 @@
-Kategorie;Option;Preis;Beschreibung;Ausgegraut
-1;Feste Einrichtung;0;Durch Corona geschlossen;ja
-1;Wechselnde Einrichtung;20;Diebstahlpauschale;nein
-1;Draußen (nur mit Isomatte und Schlafsack);37;;nein
-1;Draußen (mit Isomatte und Schlafsack und Zelt);77;;nein
-2;Ausreichend Essen am Tag (Einrichtungen);0;Durch Corona geschlossen;ja
-2;Ausreichend Essen am Tag (Selbstversorung);390;;nein
-3;Ausreichend zu trinken (Selbstversorung und Trinkbrunnen);5;;ja
-3;Nicht ausreichend zu trinken (Trinkbrunnen und Gaststätten);0;Trinkbrunnen durch Corona geschlossen (Website Hamburg) Gestst�tten auch;nein
-2;Nicht ausreichend Essen am Tag (Selbstversorung);200;;nein
-2;Nicht ausreichend Essen am Tag (Fremdhilfe auf der Straße);0;Keine Leute auf der Straße;ja
-4;Extras für den Genuss;90;;
-7;Fahrrad (kaufen);95;;nein
-7;Fahrrad (klauen);0;;nein
-5;HVV Monatskarte Gesamtbereich;92;Sozialberechtigungsrabatt;nein
-5;HVV Monatskarte ab 9 Uhr;54;Sozialberechtigungsrabatt;nein
-5;Tageskarte (nur 14 Tage);94;;nein
-5;Einzelfahrkarte (nur 14 Fahrten);48;;nein
-5;Schwarz Fahren;60;Irgendwann kommt man ins Gefängis;nein
-9;Jeden Tag duschen (Selbstversorgung);20;Eigentlich möglich aber sehr eingeschränkt durch Corona;nein
-8;Jeden zweiten Tag duschen (Selbstversorgung);10;Eigentlich möglich aber sehr eingeschränkt durch Corona;nein
-8;Einmal die Woche duschen (Selbstversorgung);5;Eigentlich möglich aber sehr eingeschränkt durch Corona;nein
-8;Duschen in Einrichtungen oder kostenlosen angeboten;0;Durch Corona geschlossen;ja
-9;Wie möchtest auf Toilette (Wildpinkeln und Gaststätte);0;Illegal und Gaststätte durch Corona sehr eingeschränkt;nein
-9;Wie möchtest auf Toilette (öffentliche Toiletten);90;öffentliche Toiletten in HH sind teuer;nein
-9;Wie möchtest auf Toilette (kostenlose Toiletten bei Einrichtungen);0;Eigentlich möglich aber sehr eingeschränkt durch Corona;ja
-10;Du möchtest eine eigene Zahnbürste haben um dir regelmäßig die Zähne putzen zu können;1;;nein
-10;Es ist kein Problem für dich in Einrichtungen Zähne zu putzen auch wenn es unregelmäßig ist?;0;;nein
-10;Ich brauche mir keine Zähne putzen;0;;nein
-11;Umfangreiche medizinische Versorgung (mit Apothekeund und Arztbesuchen);50;Sollten wir noch ausarbeiten;nein
-11;Eingeschränkte medizinische Versorgung (nur in öffentlichen Einrichtungen);0;Sollten wir noch ausarbeiten;ja
-12;Frauenhygiene;3;;nein
-13;Ich möchte regelmäßig Zigraretten konsumieren;150;Eine Packung täglich;nein
-13;Ich möchte regelmäßig Alkohol konsumieren;150;eine Flasche billig Vodka täglich;nein
-14;Ich bin schwerst Abhängig von legalen Substanzen;450;3 Flaschen billig Vodka täglich;nein
-14;Ich bin Abhängig von illegalen Substanzen;1000;Genaue beschreibung wie sich die kosten hier aufschl�sseln und welche unterschiede es gibt;nein
-15;Uneingeschränkte Aufbewahrungsmöglichkeitn;720;Muss nochmal mit anderer Gruppe überarbeitet werden;nein
-15;Stark eingeschränkte Aufbewahrungsmöglihckeiten (bei Einrichtungen);0;;ja
-16;Hund;30;;nein
-16;Andere Tiere;10;Nagetiere usw.;nein
-17;Kleidung;10;Teilweise selbstgekauft teilweise geschenkt;nein
-18;Ich möchte unterwegs das Internet nutzen und Kommunizieren können;10;Die Anschffung des Geräts ist schwer zu berechenn deswegen nicht wirklich einbegriffen;nein
-18;Mir reicht es den Zeitlich sehr beschränkten Internetzugang in einer Bibliothek zu nutzen;0;Gewisse Hygiene und nicht zu viel Gepäck um dort rein zu dürfen Öffnungszeiten stark beschr�nkt;nein
-18;Ich möchte regelmäßig in einem Internetcafe einen Internetzugang haben;10;Etwas flexibler als Bib und keine verpflichtungen wie bei einem Handyvertrag;nein
+questionID;position;text;cost;description;greyed
+1;1;Übernachtung in einer festen Einrichtung;0;Eine immer wiederkehrende Frage für Obdachlose ist das Übernachten. Du hast dich dazu entschieden, in wechselnden Einrichtungen zu schlafen, allerdings ist nicht garantiert, dass man jede Nacht einen Platz bekommt. Ein DIebstahl ist in einer wechselnden Einrichtung nicht ausgeschlossen und kommt öfter vor. Daher muss man den Verlust seiner Wertgegenständen berücksichtigen. ;ja
+1;2;Übernachtung in einer wechselnden Einrichtung;20;Eine immer wiederkehrende Frage für Obdachlose ist das Übernachten. Du hast dich dazu entschieden, draußen zu schlafen, nur mit einer Isomatte und einem Schlafsack, was bei kalten Temperaturen gefährlich werden kann. ;nein
+1;3;Draußen mit Isomatte und Schlafsack;37;Eine immer wiederkehrende Frage für Obdachlose ist das Übernachten. Du hast dich dazu entschieden, draußen zu schlafen, nur mit einer Isomatte, einem Schlafsack und einem Zelt, was bei kalten Temperaturen gefährlich werden kann. ;nein
+1;4;Draußen mit Isomatte, Schlafsack und Zelt;77;;nein
+;;;;Obwohl es für Obdachlose noch Essenstellen gibt, kann ein regelmäßiges Angebot nicht garantiert werden. Möglicherweise müsstest du dir doch Lebensmittel selber kaufen. ;
+2;1;Ausreichend Essen am Tag durch Einrichtungen und Essensspenden auf der Straße;0;Um auf der Straße zu überleben ist es sehr wichtig, ausreichend Kalorien zu sich zu nehmen. Bei einem regelmäßigen Kaloriendefizit von unter etwa 2000 kcal kann es zu gesundheitlichen Problemen führen. Mangelerscheinungen, ein geschwächtes Immunsystem führe zu Krankheiten wie dem Verlust der Muskelkraft, höheres Risiko für Stürze bis hin zu Wundheilungsstörung und Herzrhythmusstörungen.;nein
+2;2;Ausreichend Essen am Tag selber kaufen;390;Um auf der Straße zu überleben ist es sehr wichtig, ausreichend Kalorien zu sich zu nehmen. Bei einem regelmäßigen Kaloriendefizit von unter etwa 2000 kcal kann es zu gesundheitlichen Problemen führen. Mangelerscheinungen, ein geschwächtes Immunsystem führe zu Krankheiten wie dem Verlust der Muskelkraft, höheres Risiko für Stürze bis hin zu Wundheilungsstörung und Herzrhythmusstörungen.;nein
+2;3;Nicht ausreichend Essen am Tag selber kaufen;200;;nein
+;;;;Auch das ausreichende Trinken ist enorm wichtig. Die Gefahren von regelmäßiger Deyhdration sind Herzrasen, niedriger Blutdruck und allgemeine Schwäche sowie Kopfschmerzen.;
+3;1;Selber kaufen in Kiosk oder Supermarkt;5;;nein
+3;2;Öffentliche Trinkbrunnen und Gaststätten;0;;ja
+;;;;;
+4;1;Ja;50;;nein
+4;2;Nein;0;;nein
+;;;;Eine HVV Monatskarte für den Gesamtbereich ist zwar teuer, allerdings kannst du auch den ganzen Tag in warmen Bussen und Bahnen verbingen und hast eine größere Mobilität. ;
+5;1;HVV Monatskarte Gesamtbereich;92;Eine HVV Monatskarte für den Gesamtbereich ab 9 Uhr ist etwas preisgünstiger als die Gesamttageskarte. Trotzdem kann man ab 9 Uhr auch den ganzen Tag in warmen Bussen und Bahnen verbingen. Zusätzlich hast du eine größere Mobilität im Vergleich zum zu Fuß gehen. ;nein
+5;2;HVV Monatskarte ab 9 Uhr;54;In der Rechnung würdest du bei 14 Tageskarten im Monat die Hälfte der Tage im Monat mobil sein. Du hast somit die Möglichkeit den ganzen Tag in warmen Bussen und Bahnen zu verbingen. Zusätzlich hast du eine größere Mobilität im Vergleich zum zu Fuß gehen. ;nein
+5;3;Tageskarte (14 Tage im Monat);94;In der Rechnung würdest du bei 14 Einzelkarten im Monat die Hälfte der Tage im Monat mobil sein. Du hast eine größere Mobilität im Vergleich zum zu Fuß gehen. ;nein
+5;4;Einzelfahrkarte (14 Fahrten im Monat);48;Wenn man sich dazu entscheidet, nicht mit einem gültigen Ticket zu fahren kostet dies zunächst natürlich kein Geld. Allerdings ist Schwarzfahren nach §265a StGB Erschleichen von Leistungen und somit illegal. Sollte man erwischt werden, so drohen einem 60 Euro Strafe.;nein
+5;5;Ohne Fahrkarte fahren (Schwarzfahren);60;;nein
+5;6;Nicht mit Bus & Bahn fahren;0;;nein
+;;;;Mit einem Fahrrad hat man die Möglichkeit, mobiler zu sein als nur zu Fuß zu gehen. Bei verschiedenen Anbietern erhält man bereits für unter 100 Euro ein Fahrrad. ;
+6;1;Fahrrad kaufen;95;Mit einem Fahrrad hat man die Möglichkeit, mobiler zu sein als nur zu Fuß zu gehen. Ein Fahrrad zu klauen kostet zwar nichts, ist allerdings entweder nach §248b StGB: Unbefugter Gebrauch eines Fahrrads, nach §242 StGB Einfacher Diebstahl und nach §243 StGB Besonders Schwerer Fall des Diebstahls strafbar und kann im schlimmsten Fall mit bis zu 10 Jahren Haft oder Geldstrafen bestraft werden.;nein
+6;2;Fahrrad klauen;0;;nein
+6;3;Kein Fahrrad;0;;nein
+;;;;Ohne eine eigene Wohnung ist Duschen gehen mit finanziellem und zeitlichem Aufwand verbunden. Kann dieser nicht aufgebracht werden, kann dies gesundheitliche Folgen haben. Auch die Stigmatisierung bei einem ungepflegten Äußeren ist ein großes Problem, welches obdach- und wohnungslosen Menschen oft begegnet.  ;
+7;1;Jeden Tag duschen (selber zahlen);35;Ohne eine eigene Wohnung ist Duschen gehen mit finanziellem und zeitlichem Aufwand verbunden. Kann dieser nicht aufgebracht werden, kann dies gesundheitliche Folgen haben. Auch die Stigmatisierung bei einem ungepflegten Äußeren ist ein großes Problem, welches obdach- und wohnungslosen Menschen oft begegnet.  ;nein
+7;2;Jeden zweiten Tag duschen (selber zahlen);15;Ohne eine eigene Wohnung ist Duschen gehen mit finanziellem und zeitlichem Aufwand verbunden. Kann dieser nicht aufgebracht werden, kann dies gesundheitliche Folgen haben. Auch die Stigmatisierung bei einem ungepflegten Äußeren ist ein großes Problem, welches obdach- und wohnungslosen Menschen oft begegnet.  ;nein
+7;3;Einmal die Woche duschen (selber zahlen);5;Ohne eine eigene Wohnung ist Duschen gehen mit finanziellem und zeitlichem Aufwand verbunden. Kann dieser nicht aufgebracht werden, kann dies gesundheitliche Folgen haben. Auch die Stigmatisierung bei einem ungepflegten Äußeren ist ein großes Problem, welches obdach- und wohnungslosen Menschen oft begegnet.  ;nein
+7;4;Duschen in Einrichtungen oder kostenlosen Angeboten zB Gobanyo;0;;nein
+;;;;Denkst du oft darüber nach, wo und wann du auf Toilette gehst? Für obdach- und wohnungslose Menschen ist das eine alltägliche Frage. Öffentliche Toiletten sind in Hamburg sehr teuer und teilweise von Öffnungszeiten abhängig. Wildpinkeln hingehen kann mit Bußgeld bestraft werden. ;
+8;1;Toiletten in Gaststätte und Wildpinkeln;0;Denkst du oft darüber nach, wo und wann du auf Toilette gehst? Für obdach- und wohnungslose Menschen ist das eine alltägliche Frage. Öffentliche Toiletten sind in Hamburg sehr teuer und teilweise von Öffnungszeiten abhängig. Wildpinkeln hingehen kann mit Bußgeld bestraft werden. ;nein
+8;2;Öffentliche Toiletten in der Stadt;90;;nein
+8;3;Kostenlose Toiletten bei Einrichtungen;0;;ja
+;;;;Zahngesundheit ist in der Realität von obdach- und wohnungslosen Menschen ein schwieriges Thema. Selbst durch regelmäßiges Putzen können Schäden durch Mangelernährung oder Suchterkrankungen nicht verhindert werden. ;
+9;1;Ja;1;;nein
+9;2;Nein;0;;
+;;;;Die Folge von mangelnden Möglichkeiten für die tägliche Hygiene sind häufigere Erkrankungen. Außerdem ist man als Obdach- oder Wohnungslose*r äußeren Einflüssen wie Wetter oder sogar Corona stärker ausgesetzt. Dies zeigt sich im schwachen Gesundheitszustand der Menschen. ;
+10;1;Ja;30;;nein
+10;2;Nein;0;;
+;;;;;
+11;1;Ja;3;;nein
+11;2;Nein;0;;nein
+;;;;;
+12;1;Ich möchte regelmäßig Zigaretten konsumieren;150;;nein
+12;2;Ich möchte regelmäßig Alkohol konsumieren;150;;nein
+12;3;Nein;0;;
+;;;;Schwere Abhängigkeiten wie zum Beispiel von Heroin können schnell 1000€ im Monat kosten. Langfristig ist dies sehr teuer und lebensgefährlich. ;
+13;1;Ich würde wenig illegale Rauschmittel konsumieren;450;Schwere Abhängigkeiten wie zum Beispiel von Heroin können schnell 1000€ im Monat kosten. Langfristig ist dies sehr teuer und lebensgefährlich. ;nein
+13;2;Ich würde viel illegale Rauschmittel konsumieren;1000;;nein
+13;3;Nein;;;
+;;;;Die Schließfächer an Bahnhöfen sind zwar immer nutzbar, aber sehr teuer! In der Realität werden diese deshalb nicht so häufig genutzt. Schließfächer in Hilfseinrichtungen dagegen sind umsonst, allerdings nicht häufig verfügbar. ;
+14;1;Dauerhafte Aufbewahrungsmöglichkeiten in Schließfächern an Bahnhöfen;720;Die Schließfächer an Bahnhöfen sind zwar immer nutzbar, aber sehr teuer! In der Realität werden diese deshalb nicht so häufig genutzt. Schließfächer in Hilfseinrichtungen dagegen sind umsonst, allerdings nicht häufig verfügbar. ;nein
+14;2;Regelmäßige Aufbewahrungsmöglichkeiten in Schließfächern an Bahnhöfen;360;Die Schließfächer an Bahnhöfen sind zwar immer nutzbar, aber sehr teuer! In der Realität werden diese deshalb nicht so häufig genutzt. Schließfächer in Hilfseinrichtungen dagegen sind umsonst, allerdings nicht häufig verfügbar. ;
+14;3;Aufbewahrungsmöglichkeiten bei Hilfseinrichtungen;0;Wenn man keine Aufbewahrungsmöglichkeit in Anspruch nimmt, muss man tagtäglich alle sein Hab und Gut mit sich tragen und ist somit unflexibel. ;ja
+14;4;Keine Aufbewahrung ;0;;
+;;;;Der Unterhalt für Tiere ist eine finanzielle Ausgabe, die gerne gemacht wird, um weniger einsam zu sein. Einige Menschen sind sogar bereit mehr zu spenden, wenn sie sehen, dass ein Hund mit dabei ist. ;
+15;1;Ja, einen Hund;30;Der Unterhalt für Tiere ist eine finanzielle Ausgabe, die gerne gemacht wird, um weniger einsam zu sein. ;nein
+15;2;Ja, ein anderes Tier (wie zum Beispiel Nagetier);10;;nein
+15;3;Nein;0;;
+;;;;;
+16;1;Ja;10;;nein
+16;2;Nein;0;;
+;;;;"Durch ein eigenes Telefon kannst du das Internet bentuzen und aktuell bleiben. Einberechnet sind hier nur die laufenden Kosten, nicht die Geräteanschaffung an sich. Zusammenfassend lässt sich sagen, dass sich das Leben auf der Straße sehr unterschiedlich gestalten kann. Inbesondere Suchtkrankheiten können die monatliche Summe in die Höhe schnellen lassen. Während man hier nur die kalkulierte Summe sieht, müssen sich Obdachlose also jeden Monat die Frage stellen: ""Was kostet mich die Straße?""";
+17;1;Ich möchte durch ein eigenes Telefon das Internet nutzen und Kommunizieren können;10;"In einer Bibliothek kannst du dich für einen zeitlich begrenzten Raum dank Internet informieren und kommunizieren. Vorraussetzung dafür ist wenig Gepäck und saubere Aussehen, um in die Bibliothek gelassen zu werden. Zusammenfassend lässt sich sagen, dass sich das Leben auf der Straße sehr unterschiedlich gestalten kann. Inbesondere Suchtkrankheiten können die monatliche Summe in die Höhe schnellen lassen. Während man hier nur die kalkulierte Summe sieht, müssen sich Obdachlose also jeden Monat die Frage stellen: ""Was kostet mich die Straße?""";nein
+17;2;Ich möchte den zeitlich beschränkten Internetzugang in einer Bibliothek nutzen;0;"In einem Internetcafé kannst du dich für einen zeitlich begrenzten Raum dank Internet informieren und kommunizieren, allerdings musst du auch einen kleinen Preis bezahlen. Zusammenfassend lässt sich sagen, dass sich das Leben auf der Straße sehr unterschiedlich gestalten kann. Inbesondere Suchtkrankheiten können die monatliche Summe in die Höhe schnellen lassen. Während man hier nur die kalkulierte Summe sieht, müssen sich Obdachlose also jeden Monat die Frage stellen: ""Was kostet mich die Straße?""";nein
+17;3;Ich möchte regelmäßig in einem Internetcafé einen Internetzugang haben;10;"Zusammenfassend lässt sich sagen, dass sich das Leben auf der Straße sehr unterschiedlich gestalten kann. Inbesondere Suchtkrankheiten können die monatliche Summe in die Höhe schnellen lassen. Während man hier nur die kalkulierte Summe sieht, müssen sich Obdachlose also jeden Monat die Frage stellen: ""Was kostet mich die Straße?""";nein
+17;4;Ich möchte nicht auf das Internet zugreifen und nicht erreichbar sein;0;;
