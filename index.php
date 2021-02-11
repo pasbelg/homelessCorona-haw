@@ -29,9 +29,15 @@ require('functions/formFunctions.php');
             </p>
           </div>
           <div class="right-box">
-            <h2>Subtitle</h2>
+            <h2>Kosten</h2>
             <hr />
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <p>
+              Wie viel Geld brauche ich heute, wenn ich drei ganze Mahlzeiten am Tag essen möchte? Lohnt es sich wirklich, meine letzten zwei Euro für eine warme Dusche auszugeben oder kaufe ich mir doch lieber eine neue Hose? Und was mache ich, wenn ich beim Schlafplatz meinen Hund nicht reinbringen darf? 
+              Mit diesen Fragen werden viele Menschen täglich konfrontiert. Wie vieles im Leben drehen sich auch bei Menschen ohne einen festen Wohnsitz die Fragen ums Geld. Doch während es häufig bei Personen um banale Entscheidungen geht, handelt es sich bei Obdachlosen manchmal schon um die Entscheidung zwischen zwei grundlegenden Bedürfnissen. 
+              Ein besonderer Fokus liegt hierbei auf die andauernde Pandemie durch das Coronavirus SARS-CoV-2. Durch die Pandemie ist das Leben auf der Straße noch schwieriger geworden.
+              Der Fragebogen zeigt eine Übersicht über die Kosten eines Straßenlebens. Dazu gibt es mehrere Fragen aus dem alltäglichen Leben. Je nach Auswahl werden nach Beantwortung der Fragen die monatlichen Kosten kalkuliert und man kann sich einen Überblick über seine Entscheidungen verschaffen. 
+              <strong>Dazu wählst du einfach immer eine Antwort per Frage aus.</strong>
+            </p>
             <a class="formNav" href="#section1">Jetzt Starten</a>    
           </div>
           
