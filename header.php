@@ -11,6 +11,8 @@ require('functions/formFunctions.php');
     <title>Was kostet die Straße?</title>
   </head>
   <body>
+  <!--
+    Header Entfernt weil Buggy
   <section class="header">
       <nav>
         <div class="logo">
@@ -24,4 +26,5 @@ require('functions/formFunctions.php');
         </ul>
       </nav>
     </section>
+    -->
     <section class="text">
