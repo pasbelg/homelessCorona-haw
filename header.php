@@ -14,7 +14,7 @@ require('functions/formFunctions.php');
   <section class="header">
       <nav>
         <div class="logo">
-          <img src="https://hungry-varahamihira-72424b.netlify.app/icons/virus%201.svg" alt="logo" />
+          <img src="https://pensive-mahavira-34cb15.netlify.app/icons/virus.svg" alt="logo" />
         </div>
         <ul class="nav-links">
           <li><a href="/">Start</a></li>
