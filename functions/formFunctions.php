@@ -29,8 +29,10 @@ function genChoices($choices, $question){
     foreach($choices as $choice){
         $choiceCount = $choice['position'];
         if($choice['questionID'] == $question){
-            echo '<input type="checkbox" class="check" id="'.$choice['text'].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice['cost'].'"'.($choice['greyed'] == 'ja' ? 'disabled="disabled"' : '').'">
-                    <label for="'.$choice['text'].'">'.$choice['text'].'</label><br>';
+            #echo '<input type="checkbox" class="check" id="'.$choice['text'].'" name="q'.$question.'choice'.$choiceCount.'" value="'.$choice['cost'].'"'.($choice['greyed'] == 'ja' ? 'disabled="disabled"' : '').'">
+            #        <label for="'.$choice['text'].'">'.$choice['text'].'</label><br>';
+            echo '<input type="radio" class="check" id="'.$choice['text'].'" name="q'.$question.'" value="'.$choice['cost'].'"'.($choice['greyed'] == 'ja' ? 'disabled="disabled"' : '').'">
+                    <label '.($choice['greyed'] == 'ja' ? 'style="text-decoration: line-through;"' : '').' for="'.$choice['text'].'">'.$choice['text'].'</label><br>';
         }
     }
 }
@@ -71,7 +73,7 @@ function genResultText($selection, $allQuestions, $allChoices){
         if(!empty($question)){
             foreach($question as $choiceID => $selectedChoices){
                 foreach($allChoices as $availableChoice){
-                    if($questionID == $availableChoice['questionID'] AND $choiceID == $availableChoice['position']){
+                    if($questionID == $availableChoice['questionID']/* Nur für Mehrfachauswahl AND $choiceID == $availableChoice['position']*/){
                         $resultText .= $availableChoice['description'].' ';
                     }
                 }
@@ -120,15 +122,17 @@ function postToArray($formData, $questions, $token){
     foreach($questions as $question){
         #array_push($formArray['costInfo'], $category[1]); #Für späteres debugging noch behalten wegen Dopplung ([3] => Hygiene [Hygiene] => Array) evtl unnötig
         $formArray['costInfo'][$question['questionID']] = array();
-        #echo 'Frage: '.$question['questionID'].'<br>';
         foreach($formData as $key => $value){ #Für jeden Eintrag im $_POST-Array
-            #echo 'Inhalt: '.'q'.$question['questionID'].'<br>';
-            if(strpos($key, 'q'.$question['questionID'].'choice') !== false){ #strpos ist komisch https://stackoverflow.com/questions/35854071/strpos-not-working-for-a-certain-string?rq=1
-                #array_push($formArray['costInfo'][$question['questionID']], $value);
+            if($key == 'q'.$question['questionID']){
+                echo $key.' '.$value.' '. 'q'.$question['questionID'] .'<br>';
+                $formArray['costInfo'][$question['questionID']][$question['questionID']] = $value;
+                unset($formData[$key]);
+            /* Da zuerst eine Mehrfachauswahl mit Checkboxen geplant war ist hierfür der Code:
+            if(strpos($key, 'q'.$question['questionID'].'choice') !== false){
                 $choiceID = explode('choice', $key)[1];
                 $formArray['costInfo'][$question['questionID']][$choiceID] = $value;
-                #$formArray[$rowCount][$description] = $csvData[$rowCount][$key];
                 unset($formData[$key]);
+            */
             } else if (strpos($key, 'meta') !== false) { #Alles bei dem im Schlüssel "meta" steht
                 $formArray['metaInfo'][$key] = $value;
             }
@@ -136,6 +140,7 @@ function postToArray($formData, $questions, $token){
         #$formArray['metaInfo']['meta-token'] = hash('md5', $formData['meta-ip'].time());
         $formArray['metaInfo']['meta-token'] = $token;
     }
+    print_r($formArray);
     return $formArray;
 }
 

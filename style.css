@@ -45,13 +45,13 @@
 
   #resultReceipt {
     width: 30vw;
-    min-height: 800px;
+    min-height: 500px;
 	  position: relative;
 	  background: white;
     margin:20vh auto;
     color: black;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
     #resultReceipt {
         width: 90vw;
     }
@@ -62,7 +62,7 @@
 #resultReceipt::before {
 	content: '';
 	position: absolute;
-    bottom: -5vh;
+  bottom: -6vh;
 	left: 0;
 	right: 0;
 	height: 110%;
@@ -75,7 +75,7 @@
 #resultReceipt::after {
 	content: '';
 	position: absolute;
-	bottom: -5vh;
+	bottom: -6vh;
 	left: 0;
 	right: 0;
 	height: 10%;
@@ -136,6 +136,7 @@
     justify-content: space-between;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 24px;
+    margin-bottom: 3vh;
     background-color: #eff7e8;
     
   .item,
