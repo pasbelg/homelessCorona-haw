@@ -36,7 +36,7 @@ require('functions/formFunctions.php');
               Mit diesen Fragen werden viele Menschen täglich konfrontiert. Wie vieles im Leben drehen sich auch bei Menschen ohne einen festen Wohnsitz die Fragen ums Geld. Doch während es häufig bei Personen um banale Entscheidungen geht, handelt es sich bei Obdachlosen manchmal schon um die Entscheidung zwischen zwei grundlegenden Bedürfnissen. 
               Ein besonderer Fokus liegt hierbei auf die andauernde Pandemie durch das Coronavirus SARS-CoV-2. Durch die Pandemie ist das Leben auf der Straße noch schwieriger geworden.
               Der Fragebogen zeigt eine Übersicht über die Kosten eines Straßenlebens. Dazu gibt es mehrere Fragen aus dem alltäglichen Leben. Je nach Auswahl werden nach Beantwortung der Fragen die monatlichen Kosten kalkuliert und man kann sich einen Überblick über seine Entscheidungen verschaffen. 
-              <strong>Dazu wählst du einfach immer eine Antwort per Frage aus.</strong>
+              Dazu wählst du einfach immer <strong>eine Antwort pro Frage</strong> aus.
             </p>
             <a class="formNav" href="#section1">Jetzt Starten</a>    
           </div>
@@ -68,9 +68,10 @@ require('functions/formFunctions.php');
                   <div class="question">
                     <div class="questionCol sectionLeft">'.$question['description'].'</div>
                     <div class="questionCol sectionRight">';
-                        echo '<b>'.$question['text'].'</b><br>';
+                        echo '<b>'.$question['text'].'</b><br>
+                              <fieldset style="border:none" id="q'.$question['questionID'].'">';
                         genChoices(csvToArray($fileQ), $question['questionID']);
-          echo '          <br><br><br><br>
+          echo '           </fieldset><br><br><br><br>
                           <a class="formNav" href="#section'.($sectionCounter-1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" color="255 255 255" height="24" viewBox="0 0 24 24"><path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z"/></svg></a>
                           <a class="formNav" href="#section'.($sectionCounter+1).'"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg></a>
                       </div>
