@@ -20,7 +20,7 @@ require('functions/formFunctions.php');
         <!--Code von Basti-->  
         <div class="formSection" id="section0">
           <div class="left-box">
-            <img src="https://pensive-mahavira-34cb15.netlify.app/img/becher.jpg" alt="becher" />
+            <img src="media/becher.jpg" alt="becher" />
             <h2>Kosten</h2>
             <br />
             <p>
